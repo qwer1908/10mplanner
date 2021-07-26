@@ -2,46 +2,65 @@ var abox = document.querySelectorAll(".box > div");
 var input = document.querySelector("input");
 var note = document.querySelector(".note")
 const form = document.querySelector(".form")
+const button = document.querySelector(".clickbutton")
+
 function onSubmit(tomato) {
 tomato.preventDefault();
 console.log
 }
 form.addEventListener("submit", onSubmit)
 
-for (let i = 0; i < abox.length; i++) {
- abox[i].className = i
+function onButtonClick() {
+  
+}
 
- function onMouseDown(){
-   console.log("mousedown");
-   const firstbox = abox[i].className;
-   note.className= firstbox
-   var abcdef = input.value;
-  if(abox[i].style.backgroundColor === ""){ 
-     abox[i].style.backgroundColor = abcdef; }
-  else {
-     abox[i].style.backgroundColor = "";
-  }} 
+button.addEventListener("click", onButtonClick)
+
+
+   
+
+for (let i = 0; i < abox.length; i++) {
+   abox[i].className = i
+   
+   
+   
+   function onMouseDown(){
+      console.log("mousedown");
+      const firstbox = abox[i].className;
+      note.className= firstbox
+      var abcdef = input.value;
+      if(abox[i].style.backgroundColor === ""){ 
+         abox[i].style.backgroundColor = abcdef; }
+      else {
+         abox[i].style.backgroundColor = "";
+      }
+   } 
 
 
   
-function onMouseUp() {
-   console.log("mouseup")
-   const lastbox = abox[i].className;
-   var abcdef = input.value;
+   function onMouseUp() {
+      console.log("mouseup")
+      const lastbox = abox[i].className;
+      var abcdef = input.value;
    
-   for(let a=note.className; a-1<lastbox; a++) {
-      if (note.className === lastbox){
-         break;  
-      }
-      else {abox[a].style.backgroundColor =abcdef;}
-} 
-   
-   
- }
+      for(let a=note.className; a-1<lastbox; a++) {
+         if (note.className === lastbox){
+            break;  
+         }
+         else {
+            abox[a].style.backgroundColor =abcdef;
+         }
+      } 
 
- 
+   }
+
+   
+   
  abox[i].addEventListener("mousedown", onMouseDown) 
  abox[i].addEventListener("mouseup", onMouseUp)
+
+ 
+ 
 }
 
 
