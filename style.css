@@ -79,3 +79,16 @@
   margin-bottom: 2px;
   border-bottom-right-radius: 5px;
 }
+
+.animation {
+  animation: hae 1s infinite alternate;
+}
+
+@keyframes hae {
+  from {
+    background-color: white;
+  }
+  to {
+    background-color: yellow;
+  }
+}
