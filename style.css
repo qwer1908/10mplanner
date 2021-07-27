@@ -1,3 +1,5 @@
+@import url(reset.css);
+
 .time {
   width: 100px;
   height: 557px;
@@ -46,13 +48,13 @@
   width: 286px;
   height: 557px;
   display: flex;
-  margin: 20px;
+  margin: 0px 20px;
   border: solid black 2px;
   border-radius: 10px;
 }
 
 .form {
-  width: 800px;
+  width: 700px;
   height: 500px;
   display: flex;
   flex-wrap: wrap;
@@ -60,7 +62,7 @@
 
 .note {
   width: 300px;
-  height: 400px;
+  height: 530px;
 }
 
 .border {
@@ -91,4 +93,20 @@
   to {
     background-color: yellow;
   }
+}
+.clock {
+  margin: 25px;
+  padding-top: 20px;
+  font-size: 30px;
+}
+.date {
+  margin: 25px;
+  font-size: 30px;
+}
+
+.videomemo {
+  width: 300px;
+  height: 560px;
+  display: flex;
+  flex-wrap: wrap;
 }

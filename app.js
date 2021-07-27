@@ -4,17 +4,13 @@ var note = document.querySelector(".note")
 const form = document.querySelector(".form")
 const button = document.querySelector(".clickbutton")
 
+
 function onSubmit(tomato) {
 tomato.preventDefault();
 console.log
 }
 form.addEventListener("submit", onSubmit)
 
-function onButtonClick() {
-  
-}
-
-button.addEventListener("click", onButtonClick)
 
 
    
@@ -27,7 +23,7 @@ for (let i = 0; i < abox.length; i++) {
    function onMouseDown(){
       console.log("mousedown");
       const firstbox = abox[i].className;
-      note.className= firstbox
+      button.className= firstbox
       var abcdef = input.value;
       if(abox[i].style.backgroundColor === ""){ 
          abox[i].style.backgroundColor = abcdef; }
@@ -43,8 +39,8 @@ for (let i = 0; i < abox.length; i++) {
       const lastbox = abox[i].className;
       var abcdef = input.value;
    
-      for(let a=note.className; a-1<lastbox; a++) {
-         if (note.className === lastbox){
+      for(let a=button.className; a-1<lastbox; a++) {
+         if (button.className === lastbox){
             break;  
          }
          else {
