@@ -1,8 +1,9 @@
-const clock = document.querySelector(".clock")
-const table = document.querySelectorAll(".time > div")
-const dates = document.querySelector(".date")
-const timestamp = document.querySelector(".timestamp")
-
+const clock = document.querySelector(".clock");
+const table = document.querySelectorAll(".time > div");
+const dates = document.querySelector(".date");
+const day = document.querySelector(".day");
+const timestamp = document.querySelector(".timestamp");
+const daysOfWeek = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
 function onClickTimestamp(){
     note.value += clock.innerText;
@@ -21,7 +22,9 @@ timestamp.addEventListener("click", onClickTimestamp)
 
 function getDate() {
     const date = new Date();
+    const daynumber = `${date.getDay()}`;
     dates.innerText = `${date.getFullYear()} / ${date.getMonth()+1} / ${date.getDate()}`;
+    day.innerText = `${daysOfWeek[daynumber-1]}`;
 }
 
 for (let i = 0; i < table.length; i++) {

@@ -4,12 +4,10 @@ var note = document.querySelector(".note")
 const form = document.querySelector(".form")
 const button = document.querySelector(".clickbutton")
 
+// const colorstamp = document.querySelector(".colorstamp")
 
-function onSubmit(tomato) {
-tomato.preventDefault();
-console.log
-}
-form.addEventListener("submit", onSubmit)
+
+// colorstamp.addEventListener("click", onClickColorstamp)
 
 
 
