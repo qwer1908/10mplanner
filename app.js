@@ -14,29 +14,29 @@ const save = document.querySelector(".save")
 
    
    note.innerText = localStorage.textdata;
-   
+   for (let i = 0; i < abox.length; i++) {
+   abox[i].style.backgroundColor = localStorage.getItem(i);}
 save.addEventListener("click", function(event){
-   event.preventDefault();
-
-   console.dir(div1);
+  
    const textdata = note.innerText;
    localStorage.setItem("textdata", textdata);
-
-
    
 })
 
-
 for (let i = 0; i < abox.length; i++) {
   abox[i].className = i;
-   
+
+  
+ 
+ 
    function onMouseDown(){
       console.log("mousedown");
       const firstbox = abox[i].className;
       button.className= firstbox
       var abcdef = input.value;
       if(abox[i].style.backgroundColor === ""){ 
-         abox[i].style.backgroundColor = abcdef; }
+         abox[i].style.backgroundColor = abcdef;
+         localStorage.setItem(i,abcdef); }
       else {
          abox[i].style.backgroundColor = "";
       }
@@ -56,8 +56,14 @@ for (let i = 0; i < abox.length; i++) {
          else {
             abox[a].style.backgroundColor =abcdef;
          }
+         localStorage.setItem(a, abcdef);
       } 
-
+      
+      if (abox[i].style.backgroundColor === "") {
+         localStorage.removeItem(i);
+      }
+      
+      
    }
 
    
@@ -65,7 +71,9 @@ for (let i = 0; i < abox.length; i++) {
  abox[i].addEventListener("mousedown", onMouseDown) 
  abox[i].addEventListener("mouseup", onMouseUp)
 
+   
 }
+
 
 
 
