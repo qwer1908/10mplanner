@@ -6,7 +6,7 @@ const timestamp = document.querySelector(".timestamp");
 const daysOfWeek = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
 function onClickTimestamp(){
-    note.value += clock.innerText;
+    note.innerText += clock.innerText;
     const date = new Date();
     console.log("clicked");
 }

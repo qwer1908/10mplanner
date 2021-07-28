@@ -3,20 +3,32 @@ var input = document.querySelector("input");
 var note = document.querySelector(".note")
 const form = document.querySelector(".form")
 const button = document.querySelector(".clickbutton")
-
-// const colorstamp = document.querySelector(".colorstamp")
-
+const colorstamp = document.querySelector(".colorstamp")
+const save = document.querySelector(".save")
 
 // colorstamp.addEventListener("click", onClickColorstamp)
+// function onClickColorstamp() {
+   // note.innerText +=  }
 
+   
+
+   
+   note.innerText = localStorage.textdata;
+   
+save.addEventListener("click", function(event){
+   event.preventDefault();
+
+   console.dir(div1);
+   const textdata = note.innerText;
+   localStorage.setItem("textdata", textdata);
 
 
    
+})
+
 
 for (let i = 0; i < abox.length; i++) {
-   abox[i].className = i
-   
-   
+  abox[i].className = i;
    
    function onMouseDown(){
       console.log("mousedown");
@@ -53,8 +65,6 @@ for (let i = 0; i < abox.length; i++) {
  abox[i].addEventListener("mousedown", onMouseDown) 
  abox[i].addEventListener("mouseup", onMouseUp)
 
- 
- 
 }
 
 
