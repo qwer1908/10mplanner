@@ -1,15 +1,20 @@
 @import url(reset.css);
-
+body {
+  font-family: "Gowun Batang", serif;
+}
+input[type="color"] {
+  font-family: FontAwesome;
+}
 .time {
-  width: 100px;
-  height: 557px;
+  width: 40px;
+  height: 587px;
   display: flex;
   flex-wrap: wrap;
   border-right: solid black 0.1mm;
 }
 
 .time > div {
-  width: 100px;
+  width: 50px;
   height: 30px;
   display: flex;
   border-bottom: solid black 0.01mm;
@@ -40,13 +45,13 @@
 .box > div:nth-child(6) {
   border-top-right-radius: 10px;
 }
-.box > div:nth-child(108) {
+.box > div:nth-child(114) {
   border-bottom-right-radius: 10px;
 }
 
 .timetable {
-  width: 286px;
-  height: 557px;
+  width: 226px;
+  height: 587px;
   display: flex;
   margin: 0px 20px;
   border: solid black 2px;
@@ -55,14 +60,14 @@
 
 .form {
   width: 700px;
-  height: 500px;
+  height: 550px;
   display: flex;
   flex-wrap: wrap;
 }
 
 .note {
   width: 300px;
-  height: 530px;
+  height: 570px;
   padding: 10px;
   border: solid black 1px;
   border-radius: 10px;
@@ -85,47 +90,36 @@
   border-bottom-right-radius: 5px;
 }
 
-.animation {
-  animation: hae 1s infinite alternate;
-}
-
-@keyframes hae {
-  from {
-    background-color: white;
-  }
-  to {
-    background-color: yellow;
-  }
-}
-
 .clockquotes {
   display: flex;
   padding-top: 20px;
   margin: 25px;
+  align-items: center;
+  font-size: 18px;
 }
 .clock {
-  font-size: 30px;
-  margin-right: 40px;
+  font-size: 23px;
+  margin-right: 10px;
 }
 .date {
-  margin: 25px;
-  font-size: 30px;
+  margin: 0px 0px 20px 25px;
+  font-size: 25px;
 }
 
 .day {
-  margin: 25px 35px;
-  font-size: 30px;
+  margin: 25px;
+  font-size: 25px;
 }
 
 .memo {
-  width: 300px;
-  height: 560px;
+  width: 250px;
+  height: 650px;
   display: flex;
   flex-wrap: wrap;
 }
 
 .tododiv {
   position: relative;
-  top: 70px;
+  top: 100px;
   left: 20px;
 }
