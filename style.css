@@ -97,10 +97,15 @@
     background-color: yellow;
   }
 }
-.clock {
-  margin: 25px;
+
+.clockquotes {
+  display: flex;
   padding-top: 20px;
+  margin: 25px;
+}
+.clock {
   font-size: 30px;
+  margin-right: 40px;
 }
 .date {
   margin: 25px;
@@ -112,9 +117,15 @@
   font-size: 30px;
 }
 
-.videomemo {
+.memo {
   width: 300px;
   height: 560px;
   display: flex;
   flex-wrap: wrap;
+}
+
+.tododiv {
+  position: relative;
+  top: 70px;
+  left: 20px;
 }

@@ -1,34 +1,19 @@
 var abox = document.querySelectorAll(".box > div");
 var input = document.querySelector("input");
-var note = document.querySelector(".note")
+const note = document.querySelector(".note")
 const form = document.querySelector(".form")
 const button = document.querySelector(".clickbutton")
-const colorstamp = document.querySelector(".colorstamp")
-const save = document.querySelector(".save")
 
+const save = document.querySelector(".save")
+const checkbox = document.querySelector(".checkbox")
+const example = document.querySelector(".example")
 // colorstamp.addEventListener("click", onClickColorstamp)
 // function onClickColorstamp() {
    // note.innerText +=  }
-
    
-
-   
-   note.innerText = localStorage.textdata;
-   for (let i = 0; i < abox.length; i++) {
-   abox[i].style.backgroundColor = localStorage.getItem(i);}
-save.addEventListener("click", function(event){
-  
-   const textdata = note.innerText;
-   localStorage.setItem("textdata", textdata);
-   
-})
-
 for (let i = 0; i < abox.length; i++) {
   abox[i].className = i;
-
   
- 
- 
    function onMouseDown(){
       console.log("mousedown");
       const firstbox = abox[i].className;
@@ -36,13 +21,12 @@ for (let i = 0; i < abox.length; i++) {
       var abcdef = input.value;
       if(abox[i].style.backgroundColor === ""){ 
          abox[i].style.backgroundColor = abcdef;
-         localStorage.setItem(i,abcdef); }
+         localStorage.setItem(i,abcdef); 
+        }
       else {
          abox[i].style.backgroundColor = "";
       }
    } 
-
-
   
    function onMouseUp() {
       console.log("mouseup")
@@ -55,24 +39,23 @@ for (let i = 0; i < abox.length; i++) {
          }
          else {
             abox[a].style.backgroundColor =abcdef;
+           
          }
          localStorage.setItem(a, abcdef);
       } 
-      
+     
       if (abox[i].style.backgroundColor === "") {
          localStorage.removeItem(i);
+         
       }
       
       
    }
-
-   
-   
  abox[i].addEventListener("mousedown", onMouseDown) 
  abox[i].addEventListener("mouseup", onMouseUp)
-
-   
+ 
 }
+
 
 
 

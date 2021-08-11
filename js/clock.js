@@ -7,7 +7,6 @@ const daysOfWeek = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
 function onClickTimestamp(){
     note.innerText += clock.innerText;
-    const date = new Date();
     console.log("clicked");
 }
 
@@ -31,13 +30,12 @@ for (let i = 0; i < table.length; i++) {
     const date = new Date();
     const hours = date.getHours();
     console.log(hours)
-    if ( i+5 === hours) {
+    if ( i+4 === hours) {
         table[i].classList.add("animation");
     }
 }
 
 function sentence(){
-    const date = new Date()
     table[i].classList.add("animation");
 
     

@@ -8,7 +8,12 @@
     <title>Document</title>
   </head>
   <body>
-    <h1 class="clock">00:00</h1>
+    <div class="clockquotes">
+      <div class="clock">00:00</div>
+      <div class="quotes">
+        "필 꽃은 스스로 피어난다. 마음을 다해 지금을 살자."
+      </div>
+    </div>
     <span class="date">01/01</span>
     <span class="day">day</span>
     <input type="color" />
@@ -17,8 +22,6 @@
     <form class="form">
       <div class="timetable">
         <div class="time">
-          <div>5:00~6:00</div>
-
           <div>6:00~7:00</div>
 
           <div>7:00~8:00</div>
@@ -52,6 +55,8 @@
           <div>21:00~22:00</div>
 
           <div>22:00~23:00</div>
+
+          <div>23:00~24:00</div>
         </div>
         <div class="box">
           <div></div>
@@ -165,17 +170,28 @@
         </div>
       </div>
 
-      <div class="videomemo">
+      <div class="memo">
         <div class="note" contenteditable="true"></div>
-
-        <input class="save" type="submit" value="Save" />
-        <input class="timestamp" type="button" value="TimeStamp" />
-        <input class="colorstamp" type="button" value="ColorStamp" />
+        <div class="example" contenteditable="true">
+          <input class="save" type="submit" value="Save" />
+          <input class="timestamp" type="button" value="TimeStamp" />
+        </div>
       </div>
     </form>
 
-    <script src="app.js"></script>
-    <script src="clock.js"></script>
+    <div class="tododiv">
+      <form class="todo-form">
+        <input type="text" />
+      </form>
+      <ul id="todo-list"></ul>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script src="js/clock.js"></script>
+    <script src="js/colorstamp.js"></script>
+    <script src="js/quotes.js"></script>
+    <script src="js/note.js"></script>
+    <script src="js/todo.js"></script>
   </body>
 </html>
 
