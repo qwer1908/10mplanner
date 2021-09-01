@@ -1,9 +1,9 @@
 button.addEventListener("click", function(){
     const spana = document.createElement("span");
-    var abcdef = input.value;
-    spana.innerText = "ㅁ";
+    var abcdef = color.value;
+    spana.innerText = "-";
     spana.style.backgroundColor = abcdef;
+    spana.classList.add("radius")
     note.append(spana);
-    spana.classList.add("color")
  })
  

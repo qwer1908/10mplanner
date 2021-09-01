@@ -1,9 +1,9 @@
 var abox = document.querySelectorAll(".box > div");
 var input = document.querySelector("input");
+const color = document.querySelector(".color")
 const note = document.querySelector(".note")
 const form = document.querySelector(".form")
 const button = document.querySelector(".clickbutton")
-
 const save = document.querySelector(".save")
 const checkbox = document.querySelector(".checkbox")
 const example = document.querySelector(".example")
@@ -18,7 +18,7 @@ for (let i = 0; i < abox.length; i++) {
       console.log("mousedown");
       const firstbox = abox[i].className;
       button.className= firstbox
-      var abcdef = input.value;
+      var abcdef = color.value;
       if(abox[i].style.backgroundColor === ""){ 
          abox[i].style.backgroundColor = abcdef;
          localStorage.setItem(i,abcdef); 
@@ -31,7 +31,7 @@ for (let i = 0; i < abox.length; i++) {
    function onMouseUp() {
       console.log("mouseup")
       const lastbox = abox[i].className;
-      var abcdef = input.value;
+      var abcdef = color.value;
    
       for(let a=button.className; a-1<lastbox; a++) {
          if (button.className === lastbox){

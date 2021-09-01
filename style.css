@@ -10,14 +10,15 @@ input[type="color"] {
   height: 587px;
   display: flex;
   flex-wrap: wrap;
-  border-right: solid black 0.1mm;
+  border-right: solid rgb(190, 187, 177) 0.01mm;
+  color: rgb(138, 137, 133);
 }
 
 .time > div {
   width: 50px;
   height: 30px;
   display: flex;
-  border-bottom: solid black 0.01mm;
+  border-bottom: solid rgb(190, 187, 177) 0.01mm;
   justify-content: center;
   align-items: center;
 }
@@ -27,7 +28,6 @@ input[type="color"] {
 .box {
   width: 200px;
   height: 540px;
-
   display: flex;
   flex-wrap: wrap;
 }
@@ -35,8 +35,8 @@ input[type="color"] {
 .box > div {
   width: 30px;
   height: 30px;
-  border-right: rgb(0, 0, 0, 0.5) dotted 0.01mm;
-  border-bottom: rgb(0, 0, 0, 0.5) dotted 0.01mm;
+  border-right: white dotted 0.01mm;
+  border-bottom: white dotted 0.01mm;
 }
 
 .box > div:nth-child(6n + 6) {
@@ -53,23 +53,22 @@ input[type="color"] {
   width: 226px;
   height: 587px;
   display: flex;
-  margin: 0px 20px;
-  border: solid black 2px;
+  margin: 8px 10px 0px 20px;
+  border: solid rgb(190, 187, 177) 0.1px;
   border-radius: 10px;
 }
 
 .form {
-  width: 700px;
-  height: 550px;
+  width: 100vw;
+  height: 100vh;
   display: flex;
-  flex-wrap: wrap;
 }
 
 .note {
-  width: 300px;
+  width: 400px;
   height: 570px;
   padding: 10px;
-  border: solid black 1px;
+  border: solid white 1px;
   border-radius: 10px;
 }
 
@@ -92,9 +91,10 @@ input[type="color"] {
 
 .clockquotes {
   display: flex;
-  padding-top: 20px;
-  margin: 25px;
+
+  margin: 10px 0px 10px 25px;
   align-items: center;
+  justify-content: space-between;
   font-size: 18px;
 }
 .clock {
@@ -103,18 +103,19 @@ input[type="color"] {
 }
 .date {
   margin: 0px 0px 20px 25px;
-  font-size: 25px;
+  font-size: 22px;
 }
 
 .day {
   margin: 25px;
-  font-size: 25px;
+  font-size: 24px;
 }
 
 .memo {
-  width: 250px;
+  width: 400px;
   height: 650px;
   display: flex;
+  font-size: 15px;
   flex-wrap: wrap;
 }
 
@@ -122,4 +123,12 @@ input[type="color"] {
   position: relative;
   top: 100px;
   left: 20px;
+}
+
+.radius {
+  border-radius: 8px;
+}
+
+.example {
+  margin-top: 65px;
 }

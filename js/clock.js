@@ -15,14 +15,14 @@ timestamp.addEventListener("click", onClickTimestamp)
 
  function getClock() {
     const date = new Date();
-    clock.innerText = `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+    clock.innerText = `${String(date.getHours()).padStart(2, "0")}:${String(date.getMinutes()).padStart(2, "0")}:${String(date.getSeconds()).padStart(2, "0")}`;
     
 }
 
 function getDate() {
     const date = new Date();
     const daynumber = `${date.getDay()}`;
-    dates.innerText = `${date.getFullYear()} / ${date.getMonth()+1} / ${date.getDate()}`;
+    dates.innerText = `${date.getFullYear()} / ${String(date.getMonth()+1).padStart(2, "0")} / ${String(date.getDate()).padStart(2,"0")}`;
     day.innerText = `${daysOfWeek[daynumber-1]}`;
 }
 
