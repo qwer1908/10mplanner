@@ -3,10 +3,12 @@ const table = document.querySelectorAll(".time > div");
 const dates = document.querySelector(".date");
 const day = document.querySelector(".day");
 const timestamp = document.querySelector(".timestamp");
-const daysOfWeek = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
 function onClickTimestamp(){
-    note.innerText += clock.innerText;
+    const date = new Date();
+    const time = `${String(date.getHours()).padStart(2, "0")}:${String(date.getMinutes()).padStart(2, "0")}`
+    note.innerText += time;
     console.log("clicked");
 }
 
@@ -21,9 +23,9 @@ timestamp.addEventListener("click", onClickTimestamp)
 
 function getDate() {
     const date = new Date();
-    const daynumber = `${date.getDay()}`;
+    const daynumber = date.getDay();
     dates.innerText = `${date.getFullYear()} / ${String(date.getMonth()+1).padStart(2, "0")} / ${String(date.getDate()).padStart(2,"0")}`;
-    day.innerText = `${daysOfWeek[daynumber-1]}`;
+    day.innerText = `${daysOfWeek[daynumber]}`;
 }
 
 for (let i = 0; i < table.length; i++) {

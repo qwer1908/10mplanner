@@ -7,10 +7,11 @@ const button = document.querySelector(".clickbutton")
 const save = document.querySelector(".save")
 const checkbox = document.querySelector(".checkbox")
 const example = document.querySelector(".example")
+const body = document.querySelector("body");
 // colorstamp.addEventListener("click", onClickColorstamp)
 // function onClickColorstamp() {
    // note.innerText +=  }
-   
+
 for (let i = 0; i < abox.length; i++) {
   abox[i].className = i;
   

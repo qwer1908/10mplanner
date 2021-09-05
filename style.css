@@ -1,6 +1,7 @@
 @import url(reset.css);
 body {
   font-family: "Gowun Batang", serif;
+  line-height: 25px;
 }
 input[type="color"] {
   font-family: FontAwesome;
@@ -49,6 +50,11 @@ input[type="color"] {
   border-bottom-right-radius: 10px;
 }
 
+.box > div:nth-child(n + 109) {
+  border-bottom: none;
+  height: 29px;
+}
+
 .timetable {
   width: 226px;
   height: 587px;
@@ -56,19 +62,36 @@ input[type="color"] {
   margin: 8px 10px 0px 20px;
   border: solid rgb(190, 187, 177) 0.1px;
   border-radius: 10px;
+  background-color: whitesmoke;
 }
 
-.form {
-  width: 100vw;
-  height: 100vh;
+.forms {
+  width: 100%;
+  height: 100%;
   display: flex;
 }
 
+.tododiv {
+  width: 120px;
+  font-family: "Gowun Batang", serif;
+  position: relative;
+  bottom: 20px;
+}
+
+.todo-form > input {
+  border: none;
+  background: none;
+  font-size: 20px;
+  z-index: 1;
+  position: relative;
+  bottom: 5px;
+}
+
 .note {
-  width: 400px;
+  width: 40%;
   height: 570px;
   padding: 10px;
-  border: solid white 1px;
+  border: none;
   border-radius: 10px;
 }
 
@@ -91,15 +114,16 @@ input[type="color"] {
 
 .clockquotes {
   display: flex;
-
+  padding-top: 5px;
   margin: 10px 0px 10px 25px;
   align-items: center;
   justify-content: space-between;
-  font-size: 18px;
+  font-size: 17px;
 }
 .clock {
   font-size: 23px;
   margin-right: 10px;
+  margin-left: 10px;
 }
 .date {
   margin: 0px 0px 20px 25px;
@@ -119,16 +143,24 @@ input[type="color"] {
   flex-wrap: wrap;
 }
 
-.tododiv {
-  position: relative;
-  top: 100px;
-  left: 20px;
-}
-
 .radius {
   border-radius: 8px;
 }
 
 .example {
-  margin-top: 65px;
+  position: relative;
+  right: -20px;
+  top: 30px;
+  width: 60px;
+  display: flex;
+  margin-right: 10px;
+  font-family: FontAwesome;
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  z-index: -1;
 }
