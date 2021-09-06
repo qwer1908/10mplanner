@@ -151,7 +151,7 @@ input[type="color"] {
 .example {
   position: relative;
   right: -20px;
-  top: 30px;
+  top: 10px;
   width: 60px;
   display: flex;
   margin-right: 10px;
@@ -165,6 +165,19 @@ input[type="color"] {
   border-radius: 20%;
   border: none;
   margin: 5px;
+}
+
+.example > button > input {
+  background: none;
+  width: 22px;
+  height: 25px;
+  position: relative;
+  right: 4px;
+  border: none;
+}
+
+.example:focus {
+  outline: none;
 }
 .background {
   position: absolute;
