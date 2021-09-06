@@ -186,3 +186,7 @@ input[type="color"] {
   height: 100%;
   z-index: -1;
 }
+
+.weather {
+  margin: 10px;
+}
