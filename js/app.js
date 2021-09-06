@@ -1,6 +1,6 @@
 var abox = document.querySelectorAll(".box > div");
 var input = document.querySelector("input");
-const color = document.querySelector(".color")
+const color = document.querySelector(".palette")
 const note = document.querySelector(".note")
 const form = document.querySelector(".form")
 const button = document.querySelector(".clickbutton")

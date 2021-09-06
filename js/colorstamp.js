@@ -1,3 +1,4 @@
+
 button.addEventListener("click", function(){
     const spana = document.createElement("span");
     var abcdef = color.value;
