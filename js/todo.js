@@ -3,6 +3,7 @@ const toDoList = document.querySelector(".todo-list");
 const toDoInput = toDoForm.querySelector("input");
 const TODOS_KEY="todos"
 let toDos = [];
+let checked = [];
 
 function saveToDos(){
     localStorage.setItem(TODOS_KEY, JSON.stringify(toDos));
@@ -20,6 +21,10 @@ function buttonShow(event){
         button.style.display = "block";
 }
 
+function checkboxClick(event){
+    const li = event.target.parentElement;
+    localStorage.setItem("checked", JSON.stringify(checked));}
+
 function paintToDo(newTodo){
     const list = document.createElement("li");
     list.id = newTodo.id;
@@ -28,6 +33,7 @@ function paintToDo(newTodo){
     span.addEventListener("click", buttonShow);
     const checkbox = document.createElement("input");
     checkbox.type = 'checkbox';
+    checkbox.addEventListener("click", checkboxClick);
     const button = document.createElement("button");
     button.innerText = "x";
     button.style.display = "none";
