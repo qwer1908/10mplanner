@@ -6,17 +6,14 @@ const SCHEDULE_KEY="scheduless"
 
 let schedules = [];
 
-
 function saveSchedules() {
     localStorage.setItem(SCHEDULE_KEY, JSON.stringify(schedules))
-    console.log("saved");
 }
 
 function schedulebuttonShow (event) {
     const list = event.target.parentElement;
     console.dir(list);
     const schedulebut = list.querySelector("div:last-child");
-    schedulebut.style.display = "inline-block";
     schedulebut.classList.add("xbox");
 }
 
@@ -25,7 +22,7 @@ function deleteSchedule(eventer) {
     li.remove();
     schedules = schedules.filter((schedule) => schedule.id !== parseInt(li.id));
     saveSchedules();
-    console.log("deleteschedule");
+   
 }
 
 function paintSchedule(newSchedule){
@@ -64,7 +61,6 @@ function handleScheduleSubmit(event) {
         id: Date.now(),
     }
     schedules.push(newScheduleObj);
-    console.log("schedulepushed");
     paintSchedule(newScheduleObj);
     saveSchedules();
     console.log(savedSchedules);
@@ -75,7 +71,6 @@ scheduleForm.addEventListener("submit", handleScheduleSubmit);
 const savedSchedules = localStorage.getItem(SCHEDULE_KEY);
 
 if (savedSchedules !== null) {
-    console.log("savedschedule");
     console.dir(savedSchedules);
     const parsedSchedules = JSON.parse(savedSchedules);
     schedules = parsedSchedules;

@@ -225,4 +225,12 @@ body {
   width: 10px;
   height: 10px;
   background-color: black;
+  display: inline-block;
+}
+
+.abox {
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  display: inline-block;
 }

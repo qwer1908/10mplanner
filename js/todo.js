@@ -1,11 +1,12 @@
 const toDoForm = document.querySelector(".todo-form");
 const toDoList = document.querySelector(".todo-list");
 const toDoInput = toDoForm.querySelector("input");
-const TODOS_KEY="todos"
+const TODOS_KEY = "todos"
+
 let toDos = [];
 let checked = [];
 
-function saveToDos(){
+function saveToDos() {
     localStorage.setItem(TODOS_KEY, JSON.stringify(toDos));
 }
 function deleteTodo(event) {
@@ -16,26 +17,44 @@ function deleteTodo(event) {
     saveToDos();
 }
 
-function buttonShow(event){
+function buttonShow(event) {
     const li = event.target.parentElement;
     const button = li.querySelector("button");
-        button.style.display = "inline-block";
+    button.style.display = "inline-block";
     console.log("buttonShow");
 }
 
-function checkboxClick(event){
-    const li = event.target.parentElement;
-    localStorage.setItem("checked", JSON.stringify(checked));}
+function checkboxClick(event) {
+    const checkbox = event.target;
+    const checkboxid = checkbox.id;
+    if (checkbox.classList == "xbox") {
+        console.log("justcheck");
+        console.log(checkbox.classList);
+        objIndex = toDos.findIndex((obj => obj.id == checkboxid));
+        toDos[objIndex].checking = "abox";
+        checkbox.classList = "abox"
+        console.log(checkbox.classList);
+    }
 
-function paintToDo(newTodo){
+    else if (checkbox.classList !== "xbox") {
+        console.log("checkcheck")
+        objIndex = toDos.findIndex((obj => obj.id == checkboxid));
+        toDos[objIndex].checking = "xbox";
+        checkbox.classList = "xbox";
+        console.log(checkbox.classList);
+    }
+    saveToDos();
+}
+function paintToDo(newTodo) {
     const list = document.createElement("li");
     list.id = newTodo.id;
     const span = document.createElement("span");
     span.innerText = newTodo.text;
     span.addEventListener("click", buttonShow);
-    const checkbox = document.createElement("input");
-    checkbox.type = 'checkbox';
+    const checkbox = document.createElement("div");
+    checkbox.classList.add(newTodo.checking);
     checkbox.addEventListener("click", checkboxClick);
+    checkbox.id = list.id
     const button = document.createElement("button");
     button.innerText = "x";
     button.style.display = "none";
@@ -49,10 +68,11 @@ function paintToDo(newTodo){
 function handleToDoSubmit(event) {
     event.preventDefault();
     const newTodo = toDoInput.value;
-    toDoInput.value ="";
+    toDoInput.value = "";
     const newTodoObj = {
         text: newTodo,
         id: Date.now(),
+        checking: "xbox"
     }
     toDos.push(newTodoObj);
     paintToDo(newTodoObj);
