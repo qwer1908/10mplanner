@@ -9,6 +9,7 @@ function saveToDos(){
     localStorage.setItem(TODOS_KEY, JSON.stringify(toDos));
 }
 function deleteTodo(event) {
+    console.log("deletetodo")
     const li = event.target.parentElement;
     li.remove();
     toDos = toDos.filter((toDo) => toDo.id !== parseInt(li.id));
@@ -18,7 +19,8 @@ function deleteTodo(event) {
 function buttonShow(event){
     const li = event.target.parentElement;
     const button = li.querySelector("button");
-        button.style.display = "block";
+        button.style.display = "inline-block";
+    console.log("buttonShow");
 }
 
 function checkboxClick(event){

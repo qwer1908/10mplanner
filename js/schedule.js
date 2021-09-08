@@ -9,31 +9,49 @@ let schedules = [];
 
 function saveSchedules() {
     localStorage.setItem(SCHEDULE_KEY, JSON.stringify(schedules))
+    console.log("saved");
 }
 
-function deleteSchedule(event) {
-    const li= event.target.parentElement;
+function schedulebuttonShow (event) {
+    const list = event.target.parentElement;
+    console.dir(list);
+    const schedulebut = list.querySelector("div:last-child");
+    schedulebut.style.display = "inline-block";
+    schedulebut.classList.add("xbox");
+}
+
+function deleteSchedule(eventer) {
+    const li= eventer.target.parentElement;
     li.remove();
     schedules = schedules.filter((schedule) => schedule.id !== parseInt(li.id));
     saveSchedules();
+    console.log("deleteschedule");
 }
+
 function paintSchedule(newSchedule){
-    const list = document.createElement("li");
-    list.id = newSchedule.id;
+    const schedulelist = document.createElement("li");
+    schedulelist.id = newSchedule.id;
+
     const colorcircle = document.createElement("div");
     colorcircle.id = newSchedule.id;
     colorcircle.style.backgroundColor = newSchedule.color;
     colorcircle.classList.add("colorcircle");
-    const span = document.createElement("span");
-    span.innerText = newSchedule.text;
-    const button = document.createElement("button");
-    button.innerText = "X";
- 
-    button.addEventListener("click", deleteSchedule)
-    list.appendChild(colorcircle);
-    list.appendChild(span);
-    list.appendChild(button);
-    scheduleList.appendChild(list);
+    
+    const schedulespan = document.createElement("span");
+    schedulespan.innerText = newSchedule.text;
+    schedulespan.addEventListener("click", schedulebuttonShow);
+    
+    const schedulebutton = document.createElement("div");
+    schedulebutton.addEventListener("click", deleteSchedule);
+
+    
+    
+    
+    
+    schedulelist.appendChild(colorcircle);
+    schedulelist.appendChild(schedulespan);
+    schedulelist.appendChild(schedulebutton);
+    scheduleList.appendChild(schedulelist);
 }
 
 function handleScheduleSubmit(event) {
@@ -46,17 +64,20 @@ function handleScheduleSubmit(event) {
         id: Date.now(),
     }
     schedules.push(newScheduleObj);
+    console.log("schedulepushed");
     paintSchedule(newScheduleObj);
     saveSchedules();
+    console.log(savedSchedules);
 }
 
 scheduleForm.addEventListener("submit", handleScheduleSubmit);
 
 const savedSchedules = localStorage.getItem(SCHEDULE_KEY);
+
 if (savedSchedules !== null) {
+    console.log("savedschedule");
+    console.dir(savedSchedules);
     const parsedSchedules = JSON.parse(savedSchedules);
-    schedules=parsedSchedules;
+    schedules = parsedSchedules;
     parsedSchedules.forEach(paintSchedule);
 }
-
-
