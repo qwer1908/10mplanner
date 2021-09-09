@@ -25,7 +25,7 @@ function getDate() {
     const date = new Date();
     const daynumber = date.getDay();
     dates.innerText = `${date.getFullYear()} / ${String(date.getMonth()+1).padStart(2, "0")} / ${String(date.getDate()).padStart(2,"0")}`;
-    day.innerText = `${daysOfWeek[daynumber]}`;
+    day.innerText = `${daysOfWeek[daynumber-1]}`;
 }
 
 for (let i = 0; i < table.length; i++) {

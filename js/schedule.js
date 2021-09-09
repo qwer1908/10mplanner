@@ -12,9 +12,9 @@ function saveSchedules() {
 
 function schedulebuttonShow (event) {
     const list = event.target.parentElement;
-    console.dir(list);
     const schedulebut = list.querySelector("div:last-child");
     schedulebut.classList.add("xbox");
+
 }
 
 function deleteSchedule(eventer) {
