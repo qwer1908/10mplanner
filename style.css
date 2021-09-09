@@ -78,8 +78,7 @@ body {
 }
 
 .tododiv {
-  width: 150px;
-
+  width: 130px;
   position: relative;
   bottom: 30px;
   padding: 10px;
