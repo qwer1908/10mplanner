@@ -1,5 +1,5 @@
 
-const stickerList = ["sticker0.png", "sticker1.png", "sticker2.png", "sticker3.png", "sticker4.png"]
+const stickerList = ["sticker0.png", "sticker1.png", "sticker2.png", "sticker3.png", "sticker4.png","sticker5.png", "sticker6.png", "sticker7.png", "sticker8.png"]
 const stickerSelector = document.querySelector(".sticker-selector");
 
 body.addEventListener("mousedown", mouseStart); 
@@ -20,7 +20,11 @@ function selectPage(){
     }
     const example = document.querySelector(".example")
     const optionPage = document.createElement("div")
-    optionPage.classList.add("box")
+    optionPage.style.width="253px";
+    optionPage.style.height="253px";
+    optionPage.style.display="flex";
+    optionPage.style.flexWrap='wrap';
+    optionPage.style.backgroundColor= "wheat";
     optionPage.style.position = "absolute";
     optionPage.style.left="200px";
     optionPage.style.top="-250px";
