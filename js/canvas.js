@@ -1,4 +1,7 @@
 
+const stickerList = ["sticker0.png", "sticker1.png", "sticker2.png", "sticker3.png", "sticker4.png"]
+const stickerSelector = document.querySelector(".sticker-selector");
+
 body.addEventListener("mousedown", mouseStart); 
 body.addEventListener("mouseup", mouseEnd); 
 var pcLong = 0;
@@ -10,39 +13,94 @@ function mouseStart(event) {
     clickedy = event.pageY;
     console.log(clickedx,clickedy)
 };
-function showdeleteButton(event) {
-    console.log("image clicked")
-    const img = event.target;
-    const xbutton = document.createElement("button");
-    xbutton.innerText = "x";
-    img.appendChild(xbutton);
-    console.dir(img)
+
+function selectPage(){
+    function optionNone() {
+        example.removeChild(optionPage);
+    }
+    const example = document.querySelector(".example")
+    const optionPage = document.createElement("div")
+    optionPage.classList.add("box")
+    optionPage.style.position = "absolute";
+    optionPage.style.left="200px";
+    optionPage.style.top="-250px";
+    const optionOff = document.createElement("button")
+    optionOff.innerText ="x"
+    optionOff.style.position = "absolute";
+    optionOff.style.left = "250px";
+    optionOff.addEventListener("click", optionNone)
+    example.appendChild(optionPage);
+    optionPage.appendChild(optionOff);
+    for (let i = 0; i < stickerList.length; i++) {
+        const stickerselecting = document.createElement("div")
+        stickerselecting.style.height="50px";
+       stickerselecting.style.width = "50px";
+       stickerselecting.style.backgroundImage = `url(img2/sticker${[i]}.png)`;
+       stickerselecting.style.backgroundSize = " contain";
+      
+       stickerselecting.addEventListener("click", stickerSelected)
+       function stickerSelected(event){
+           const stick = document.querySelector(".sticker-selector");
+            const a = event.target;
+           const b=a.style.backgroundImage;
+           console.log(b);
+           stick.style.backgroundImage= b;
+           stick.style.backgroundSize = "cover";
+
+       }
+        optionPage.appendChild(stickerselecting);
+    }
+        
+        
+
 }
 
+stickerSelector.addEventListener("click", selectPage);
+
+
+
 function mouseEnd(event) {
+    
     const xa = event.pageX;
     const ya = event.pageY;
     console.dir(event);    
     var result = Date.now() - pcLong;
     if(Number(result) > 800){ 
-        console.log("longclick")    	
-        const img = document.createElement("img");
         const newid= Date.now();
+        console.log("longclick")     
+        const newsticker = stickerSelector.style.backgroundImage
+        console.dir(stickerSelector);	
+        const img = document.createElement("div");
         img.id = newid;
-        img.src = "https://image.shutterstock.com/shutterstock/photos/1484978876/display_1500/stock-photo-sticker-sign-button-free-icon-free-sticker-badge-tag-1484978876.jpg"
-        img.style.height = "50px";
-        img.style.position = "absolute";
-        img.style.marginLeft= xa + "px";
-        img.style.marginTop= ya-820 + "px";
-        
-        
+       img.style.height="80px";
+       img.style.width = "80px";
+       img.style.backgroundImage = newsticker;
+       img.style.backgroundSize = " contain";
+       img.style.position="absolute";
+       img.style.left=xa-40+"px";
+       img.style.top=ya-40+"px";
+       img.addEventListener("click", showDeleteButton);
+       function showDeleteButton(){
+        if (xbutton.style.display = "none"){
+            xbutton.style.display = "block"}
+        console.log("imageclick")
+    }
+        const xbutton = document.createElement("div")
+        xbutton.innerText = "x";
+        xbutton.style.position = "absolute";
+        xbutton.style.height="10px";
+        xbutton.style.left = "50px";
+        xbutton.style.display = "none";
+        xbutton.addEventListener("click", deleteImage)
+        function deleteImage() {
+            body.removeChild(img);
+        };
+
         body.appendChild(img);
-
-        
-
-        img.addEventListener("click", showdeleteButton)
-
-        
+     
+       
+       
+        img.append(xbutton);
     }
     
 };

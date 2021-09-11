@@ -165,7 +165,6 @@ body {
 }
 
 .example > button {
-  background: wheat;
   width: 30px;
   height: 30px;
   border-radius: 20%;
@@ -187,8 +186,6 @@ body {
 }
 
 .example > button:last-child {
-  background: url("http://3.bp.blogspot.com/_EqZzf-l7OCg/TNmdtcyGBZI/AAAAAAAAAD8/KD5Y23c24go/s1600/homer-simpson-1280x1024.jpg")
-    no-repeat;
   background-size: cover;
 }
 .background {
