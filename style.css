@@ -159,7 +159,7 @@ body {
   position: relative;
   right: -20px;
   top: 60px;
-  width: 60px;
+  width: 200px;
   display: flex;
   margin-right: 10px;
 }
@@ -184,6 +184,12 @@ body {
 
 .example:focus {
   outline: none;
+}
+
+.example > button:last-child {
+  background: url("http://3.bp.blogspot.com/_EqZzf-l7OCg/TNmdtcyGBZI/AAAAAAAAAD8/KD5Y23c24go/s1600/homer-simpson-1280x1024.jpg")
+    no-repeat;
+  background-size: cover;
 }
 .background {
   position: absolute;
