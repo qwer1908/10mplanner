@@ -7,12 +7,7 @@ body.addEventListener("mouseup", mouseEnd);
 var pcLong = 0;
 let clickedx = '';
 let clickedy = '';
-function mouseStart(event) {
-    pcLong = Date.now();
-    clickedx = event.pageX;
-    clickedy = event.pageY;
-    console.log(clickedx,clickedy)
-};
+
 
 function selectPage(){
     function optionNone() {
@@ -53,13 +48,21 @@ function selectPage(){
 
        }
         optionPage.appendChild(stickerselecting);
-    }
-        
-        
-
+    } 
 }
 
+
+
 stickerSelector.addEventListener("click", selectPage);
+
+
+function mouseStart(event) {
+    pcLong = Date.now();
+    console.log("mouse start!");
+    clickedx = event.pageX;
+    clickedy = event.pageY;
+    console.log(clickedx,clickedy)
+};
 
 
 
@@ -70,12 +73,10 @@ function mouseEnd(event) {
     console.dir(event);    
     var result = Date.now() - pcLong;
     if(Number(result) > 800){ 
-        const newid= Date.now();
-        console.log("longclick")     
-        const newsticker = stickerSelector.style.backgroundImage
-        console.dir(stickerSelector);	
-        const img = document.createElement("div");
-        img.id = newid;
+       const newid= Date.now();
+       const newsticker = stickerSelector.style.backgroundImage
+       const img = document.createElement("div");
+       img.id = newid;
        img.style.height="80px";
        img.style.width = "80px";
        img.style.backgroundImage = newsticker;
@@ -85,20 +86,14 @@ function mouseEnd(event) {
        img.style.left=xa-40+"px";
        img.style.top=ya-40+"px";
        img.addEventListener("click", showDeleteButton);
-       function showDeleteButton(event){
-    
-        if (xbutton.style.display === "none"){
-            console.log(xbutton.style.display);
-            xbutton.style.display = "block";
-            
-            console.log("the button became block")}
-        else {
-            
+       function showDeleteButton(){
+            if (xbutton.style.display === "none"){
+            xbutton.style.display = "block";}
+            else {
             xbutton.style.display="none";
-            console.log("the buttone became none");
+            }
         }
 
-    }
         const xbutton = document.createElement("div")
         xbutton.innerText = "x";
         xbutton.style.position = "absolute";

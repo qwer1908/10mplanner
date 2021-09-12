@@ -13,7 +13,13 @@ function saveSchedules() {
 function schedulebuttonShow (event) {
     const list = event.target.parentElement;
     const schedulebut = list.querySelector("div:last-child");
+    console.dir(schedulebut);
+    if (schedulebut.className ===""){
     schedulebut.classList.add("xbox");
+    }
+    else{
+        schedulebut.classList.remove("xbox");
+    }
 
 }
 

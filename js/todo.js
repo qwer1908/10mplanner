@@ -4,7 +4,6 @@ const toDoInput = toDoForm.querySelector("input");
 const TODOS_KEY = "todos"
 
 let toDos = [];
-let checked = [];
 
 function saveToDos() {
     localStorage.setItem(TODOS_KEY, JSON.stringify(toDos));
@@ -20,9 +19,14 @@ function deleteTodo(event) {
 function buttonShow(event) {
     const li = event.target.parentElement;
     const button = li.querySelector("button");
-    button.style.display = "inline-block";
-    console.log("buttonShow");
-}
+
+    if (button.style.display === "none"){
+        button.style.display = "inline-block";
+    }
+    else {
+        button.style.display = "none";
+    }
+}    
 
 function checkboxClick(event) {
     const checkbox = event.target;
