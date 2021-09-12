@@ -1,5 +1,5 @@
 
-const stickerList = ["sticker0.png", "sticker1.png", "sticker2.png", "sticker3.png", "sticker4.png","sticker5.png", "sticker6.png", "sticker7.png", "sticker8.png"]
+const stickerList = ["sticker0.png", "sticker1.png", "sticker2.png", "sticker3.png", "sticker4.png","sticker5.png", "sticker6.png", "sticker7.png", "sticker8.png","sticker9.png", "sticker10.png", "sticker11.png","sticker12.png","sticker13.png","sticker14.png","sticker15.png","sticker16.png","sticker17.png","sticker18.png","sticker19.png","sticker20.png","sticker21.png","sticker22.png","sticker23.png", "sticker24.png", "sticker25.png","sticker26.png","sticker27.png","sticker28.png","sticker29.png","sticker30.png","sticker31.png","sticker32.png", "sticker33", "sticker34", "sticker35","sticker36","sticker37","sticker38"  ]
 const stickerSelector = document.querySelector(".sticker-selector");
 
 body.addEventListener("mousedown", mouseStart); 
@@ -41,7 +41,7 @@ function selectPage(){
        stickerselecting.style.width = "50px";
        stickerselecting.style.backgroundImage = `url(img2/sticker${[i]}.png)`;
        stickerselecting.style.backgroundSize = " contain";
-      
+        stickerselecting.style.backgroundRepeat ="no-repeat";
        stickerselecting.addEventListener("click", stickerSelected)
        function stickerSelected(event){
            const stick = document.querySelector(".sticker-selector");
@@ -80,14 +80,24 @@ function mouseEnd(event) {
        img.style.width = "80px";
        img.style.backgroundImage = newsticker;
        img.style.backgroundSize = " contain";
+       img.style.backgroundRepeat ="no-repeat";
        img.style.position="absolute";
        img.style.left=xa-40+"px";
        img.style.top=ya-40+"px";
        img.addEventListener("click", showDeleteButton);
-       function showDeleteButton(){
-        if (xbutton.style.display = "none"){
-            xbutton.style.display = "block"}
-        console.log("imageclick")
+       function showDeleteButton(event){
+    
+        if (xbutton.style.display === "none"){
+            console.log(xbutton.style.display);
+            xbutton.style.display = "block";
+            
+            console.log("the button became block")}
+        else {
+            
+            xbutton.style.display="none";
+            console.log("the buttone became none");
+        }
+
     }
         const xbutton = document.createElement("div")
         xbutton.innerText = "x";
@@ -102,8 +112,6 @@ function mouseEnd(event) {
 
         body.appendChild(img);
      
-       
-       
         img.append(xbutton);
     }
     
