@@ -10,7 +10,7 @@ body {
 }
 
 .clockweather {
-  margin: 10px;
+  margin: 10px 10px 0px 15px;
 }
 .time {
   width: 40px;
@@ -74,6 +74,7 @@ body {
 .forms {
   width: 100%;
   height: 100%;
+  padding: 0px 15px;
   display: flex;
 }
 
@@ -98,6 +99,7 @@ body {
   width: 70%;
   height: 570px;
   padding: 10px;
+  margin-right: 35px;
   border: none;
   position: relative;
   bottom: 8px;
@@ -123,7 +125,7 @@ body {
 .clockquotes {
   display: flex;
   padding-top: 5px;
-  margin: 0px 0px 10px 25px;
+  margin: 0px 35px;
   align-items: center;
   justify-content: space-between;
   font-size: 20px;
@@ -135,6 +137,7 @@ body {
 }
 .date {
   margin: 0px 0px 20px 25px;
+  padding: 10px;
   font-size: 25px;
 }
 
@@ -225,16 +228,21 @@ body {
 }
 
 .xbox {
-  width: 10px;
-  height: 10px;
-  background-color: black;
+  width: 16px;
+  height: 16px;
+  background-image: url(img2/sticker5.png);
   display: inline-block;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-right: 3px;
+  position: relative;
+  top: 1px;
 }
 
 .abox {
   width: 16px;
   height: 16px;
-  background-image: url(images/checkbox.png);
+  background-image: url(img2/sticker29.png);
   display: inline-block;
   background-size: contain;
   background-repeat: no-repeat;

@@ -1,12 +1,17 @@
 
-const stickerList = ["sticker0.png", "sticker1.png", "sticker2.png", "sticker3.png", "sticker4.png","sticker5.png", "sticker6.png", "sticker7.png", "sticker8.png","sticker9.png", "sticker10.png", "sticker11.png","sticker12.png","sticker13.png","sticker14.png","sticker15.png","sticker16.png","sticker17.png","sticker18.png","sticker19.png","sticker20.png","sticker21.png","sticker22.png","sticker23.png", "sticker24.png", "sticker25.png","sticker26.png","sticker27.png","sticker28.png","sticker29.png","sticker30.png","sticker31.png","sticker32.png", "sticker33", "sticker34", "sticker35","sticker36","sticker37","sticker38"  ]
+const stickerList = ["sticker0.png", "sticker1.png", "sticker2.png", "sticker3.png", "sticker4.png","sticker5.png", "sticker6.png", "sticker7.png", "sticker8.png","sticker9.png", "sticker10.png", "sticker11.png","sticker12.png","sticker13.png","sticker14.png","sticker15.png","sticker16.png","sticker17.png","sticker18.png","sticker19.png","sticker20.png","sticker21.png","sticker22.png","sticker23.png", "sticker24.png", "sticker25.png","sticker26.png","sticker27.png","sticker28.png","sticker29.png","sticker30.png","sticker31.png","sticker32.png", "sticker33", "sticker34", "sticker35","sticker36","sticker37","sticker38","sticker39.png","sticker40.png","sticker41.png","sticker42.png","sticker43.png","sticker44.png","sticker45.png","sticker46.png"]
 const stickerSelector = document.querySelector(".sticker-selector");
-
-body.addEventListener("mousedown", mouseStart); 
-body.addEventListener("mouseup", mouseEnd); 
 var pcLong = 0;
 let clickedx = '';
 let clickedy = '';
+let stickerInf = []
+const STICKER_KEY ="stickerinformation"
+
+console.log(stickerInf)
+
+
+body.addEventListener("mousedown", mouseStart); 
+body.addEventListener("mouseup", mouseEnd); 
 
 
 function selectPage(){
@@ -33,24 +38,22 @@ function selectPage(){
     for (let i = 0; i < stickerList.length; i++) {
         const stickerselecting = document.createElement("div")
         stickerselecting.style.height="50px";
-       stickerselecting.style.width = "50px";
-       stickerselecting.style.backgroundImage = `url(img2/sticker${[i]}.png)`;
-       stickerselecting.style.backgroundSize = " contain";
+        stickerselecting.style.width = "50px";
+        stickerselecting.style.backgroundImage = `url(img2/sticker${[i]}.png)`;
+        stickerselecting.style.backgroundSize = " contain";
         stickerselecting.style.backgroundRepeat ="no-repeat";
-       stickerselecting.addEventListener("click", stickerSelected)
-       function stickerSelected(event){
+        stickerselecting.addEventListener("click", stickerSelected)
+        function stickerSelected(event){
            const stick = document.querySelector(".sticker-selector");
-            const a = event.target;
+           const a = event.target;
            const b=a.style.backgroundImage;
            console.log(b);
            stick.style.backgroundImage= b;
            stick.style.backgroundSize = "cover";
-
        }
         optionPage.appendChild(stickerselecting);
     } 
 }
-
 
 
 stickerSelector.addEventListener("click", selectPage);
@@ -73,6 +76,7 @@ function mouseEnd(event) {
     console.dir(event);    
     var result = Date.now() - pcLong;
     if(Number(result) > 800){ 
+        console.log("long click");        
        const newid= Date.now();
        const newsticker = stickerSelector.style.backgroundImage
        const img = document.createElement("div");
@@ -86,6 +90,15 @@ function mouseEnd(event) {
        img.style.left=xa-40+"px";
        img.style.top=ya-40+"px";
        img.addEventListener("click", showDeleteButton);
+       const newStickerObj ={
+           backgroundSrc: newsticker,
+           id: newid,
+           xposition: xa,
+           yposition: ya  
+       } 
+       stickerInf.push(newStickerObj);
+       saveStickers()
+
        function showDeleteButton(){
             if (xbutton.style.display === "none"){
             xbutton.style.display = "block";}
@@ -103,6 +116,10 @@ function mouseEnd(event) {
         xbutton.addEventListener("click", deleteImage)
         function deleteImage() {
             body.removeChild(img);
+            stickerInf = stickerInf.filter((toDo) => toDo.id !== parseInt(img.id));
+            console.log(stickerInf);
+            saveStickers();
+
         };
 
         body.appendChild(img);
@@ -111,6 +128,60 @@ function mouseEnd(event) {
     }
     
 };
+
+
+function saveStickers() {
+    localStorage.setItem(STICKER_KEY, JSON.stringify(stickerInf));
+}
+
+const savedStickers = localStorage.getItem(STICKER_KEY)
+
+
+
+if (stickerInf !== null) {
+    const parsedStickers = JSON.parse(savedStickers);
+    stickerInf = parsedStickers;
+    parsedStickers.forEach(paintSticker);
+    function paintSticker(newstickers) {
+        const stick = document.createElement("div");
+        stick.id = newstickers.id
+        stick.style.height="80px";
+        stick.style.width = "80px";
+        stick.style.backgroundImage = newstickers.backgroundSrc;
+        stick.style.backgroundSize = " contain";
+        stick.style.backgroundRepeat ="no-repeat";
+        stick.style.position="absolute";
+        stick.style.left=newstickers.xposition-40+"px";
+        stick.style.top=newstickers.yposition-40+"px";
+        stick.addEventListener("click", showDeleteButton);
+        function showDeleteButton(){
+            if (xbutton.style.display === "none"){
+            xbutton.style.display = "block";}
+            else {
+            xbutton.style.display="none";
+            }
+        }
+
+        const xbutton = document.createElement("div")
+        xbutton.innerText = "x";
+        xbutton.style.position = "absolute";
+        xbutton.style.height="10px";
+        xbutton.style.left = "50px";
+        xbutton.style.display = "none";
+        xbutton.addEventListener("click", deleteSticker)
+
+        function deleteSticker(event) {
+            const stick = event.target.parentElement;
+            body.removeChild(stick);
+            stickerInf = stickerInf.filter((toDo) => toDo.id !== parseInt(stick.id));
+            console.log(stickerInf);
+            saveStickers();
+        };
+        body.appendChild(stick);
+        stick.appendChild(xbutton);
+    }
+
+}
 
 //Web & Mobile 다이어리 호환 가능 했으면 좋겠음.              
 //monthly도 만들기

@@ -8,13 +8,7 @@ let toDos = [];
 function saveToDos() {
     localStorage.setItem(TODOS_KEY, JSON.stringify(toDos));
 }
-function deleteTodo(event) {
-    console.log("deletetodo")
-    const li = event.target.parentElement;
-    li.remove();
-    toDos = toDos.filter((toDo) => toDo.id !== parseInt(li.id));
-    saveToDos();
-}
+
 
 function buttonShow(event) {
     const li = event.target.parentElement;
@@ -32,7 +26,6 @@ function checkboxClick(event) {
     const checkbox = event.target;
     const checkboxid = checkbox.id;
     if (checkbox.classList == "xbox") {
-        console.log("justcheck");
         console.log(checkbox.classList);
         objIndex = toDos.findIndex((obj => obj.id == checkboxid));
         toDos[objIndex].checking = "abox";
@@ -49,6 +42,7 @@ function checkboxClick(event) {
     }
     saveToDos();
 }
+
 function paintToDo(newTodo) {
     const list = document.createElement("li");
     list.id = newTodo.id;
@@ -84,6 +78,15 @@ function handleToDoSubmit(event) {
 }
 
 toDoForm.addEventListener("submit", handleToDoSubmit);
+
+
+function deleteTodo(event) {
+    console.log("deletetodo")
+    const li = event.target.parentElement;
+    li.remove();
+    toDos = toDos.filter((toDo) => toDo.id !== parseInt(li.id));
+    saveToDos();
+}
 
 const savedToDos = localStorage.getItem(TODOS_KEY)
 
