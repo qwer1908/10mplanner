@@ -81,7 +81,6 @@ toDoForm.addEventListener("submit", handleToDoSubmit);
 
 
 function deleteTodo(event) {
-    console.log("deletetodo")
     const li = event.target.parentElement;
     li.remove();
     toDos = toDos.filter((toDo) => toDo.id !== parseInt(li.id));
