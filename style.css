@@ -79,7 +79,7 @@ body {
 }
 
 .tododiv {
-  width: 130px;
+  width: 150px;
   position: relative;
   bottom: 30px;
   padding: 10px;
@@ -93,6 +93,7 @@ body {
   position: relative;
   bottom: 5px;
   font-family: "나눔손글씨 가람연꽃", serif;
+  width: 110px;
 }
 
 .note {
@@ -136,7 +137,7 @@ body {
   margin-left: 10px;
 }
 .date {
-  margin: 0px 0px 20px 25px;
+  margin: 0px 0px 20px 30px;
   padding: 10px;
   font-size: 25px;
 }
@@ -162,7 +163,7 @@ body {
   position: relative;
   right: -20px;
   top: 60px;
-  width: 200px;
+  width: 240px;
   display: flex;
   margin-right: 10px;
 }
@@ -225,6 +226,7 @@ body {
   border: none;
   font-family: "나눔손글씨 가람연꽃", serif;
   font-size: 25px;
+  width: 110px;
 }
 
 .xbox {

@@ -22,12 +22,58 @@ const quotes = [
     },
     {
         quote: "필 꽃은 스스로 피어난다. 마음을 다해 지금을 살자."
-    },
-    {
-        quote: ""
     }
 ]
-
+let savedQuote = localStorage.getItem("quoteinfo")
 const quote = document.querySelector(".quotes");
 const todaysQuote = quotes[Math.floor(Math.random()*quotes.length)]
 quote.innerText=todaysQuote.quote;
+quote.addEventListener("click", quoteClicked)
+
+function removeQuoteinput(){
+    const quoteForm = document.querySelector(".quote-form")
+    body.removeChild(quoteForm);
+    console.log("removed")
+}
+function quoteClicked(){
+    const quoteForm = document.createElement("form"); 
+    const quoteinput = document.createElement("input");
+    const exbutton = document.createElement("div");
+    exbutton.innerText ="x";
+    exbutton.style.width = "10px";
+    exbutton.style.height = "10px";
+    exbutton.style.display = "inline-block"
+    exbutton.addEventListener("click", removeQuoteinput);
+    quoteinput.type ="text";
+    quoteinput.classList.add("quoteinput");
+    quoteinput.required = true;
+    quoteForm.addEventListener("submit", quoteSubmitted)
+    quoteForm.classList.add("quote-form")
+    quoteForm.style.position = "absolute";
+    quoteForm.style.top = "30px";
+    quoteForm.style.left = "30px";
+    quoteForm.appendChild(quoteinput);
+    quoteForm.appendChild(exbutton);
+    body.appendChild(quoteForm);    
+}
+
+
+function quoteSubmitted(event){
+    event.preventDefault();
+    const quoteinput = document.querySelector(".quoteinput")
+    const quoteForm = document.querySelector(".quote-form")
+    localStorage.setItem("quoteinfo", quoteinput.value);
+    quote.innerText = quoteinput.value;
+    
+    body.removeChild(quoteForm);
+}
+
+if (savedQuote !== null) {
+    if (savedQuote == ""){
+        console.log("no quote...");
+        quote.innerText = "'";
+    }
+    else{quote.innerText = localStorage.getItem("quoteinfo");}
+
+}
+

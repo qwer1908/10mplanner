@@ -6,6 +6,25 @@ const SCHEDULE_KEY="scheduless"
 
 let schedules = [];
 
+
+function findObjectByKey(array, key, value) {
+    for (var i = 0; i < array.length; i++) {
+        if (array[i][key] == value) {
+            return array[i];
+        }
+    }
+   return null;
+}
+
+function circleClicked (event) {
+
+    const clickedcircle = event.target;
+    var clickedColor= findObjectByKey(schedules, "id", clickedcircle.id);
+    console.log(clickedColor.color)
+    color.value = clickedColor.color;
+
+}
+
 function saveSchedules() {
     localStorage.setItem(SCHEDULE_KEY, JSON.stringify(schedules))
 }
@@ -28,7 +47,6 @@ function deleteSchedule(eventer) {
     li.remove();
     schedules = schedules.filter((schedule) => schedule.id !== parseInt(li.id));
     saveSchedules();
-   
 }
 
 function paintSchedule(newSchedule){
@@ -39,6 +57,7 @@ function paintSchedule(newSchedule){
     colorcircle.id = newSchedule.id;
     colorcircle.style.backgroundColor = newSchedule.color;
     colorcircle.classList.add("colorcircle");
+    colorcircle.addEventListener("click", circleClicked);
     
     const schedulespan = document.createElement("span");
     schedulespan.innerText = newSchedule.text;

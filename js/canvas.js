@@ -1,10 +1,12 @@
 
-const stickerList = ["sticker0.png", "sticker1.png", "sticker2.png", "sticker3.png", "sticker4.png","sticker5.png", "sticker6.png", "sticker7.png", "sticker8.png","sticker9.png", "sticker10.png"
+const stickerList = ["off.png", "sticker0.png", "sticker1.png", "sticker2.png", "sticker3.png", "sticker4.png","sticker5.png", "sticker6.png", "sticker7.png", "sticker8.png","sticker9.png", "sticker10.png"
 , "sticker11.png" ,"sticker12.png","sticker13.png","sticker14.png","sticker15.png","sticker16.png","sticker17.png","sticker18.png","sticker19.png","sticker20.png"
 ,"sticker21.png", "sticker22.png","sticker23.png", "sticker24.png", "sticker25.png","sticker26.png","sticker27.png","sticker28.png","sticker29.png","sticker30.png"
-,"sticker31.png", "sticker32.png", "sticker33", "sticker34", "sticker35","sticker36","sticker37","sticker38","sticker39.png","sticker40.png"
-,"sticker41.png", "sticker42.png", "sticker43.png", "sticker44.png","sticker45.png","sticker46.png","sticker47.png","sticker48.png","sticker49.png","sticker50.png"
-,"sticker51.png"];
+,"sticker31.png", "sticker32.png", "sticker33.png", "sticker34.png", "sticker35.png","sticker36.png","sticker37.png","sticker38.png","sticker39.png","sticker40.png"
+,"sticker41.png", "sticker42.png", "sticker43.png", "sticker44.png", "sticker45.png", "sticker46.png","sticker47.png", "sticker48.png", "sticker49.png", "sticker50.png"
+,"51.png", "52.png", "53.png", "54.png", "55.png", "56.png", "57.png", "58.png", "59.png", "60.png", "61.png", "62.png", "63.png", "64.png", "65.png", "66.png", "67.png", "68.png", "69.png", "70.png"
+,"71.png", "72.png","1.png", "2.png", "3.png", "4.png", "5.png", "6.png", "7.png", "8.png", "9.png", "10.png", "11.png", "12.png", "13.png", "14.png", "15.png", "16.png", "17.png", "18.png", "19.png", "20.png", "21.png", "22.png", "23.png", "24.png", "25.png", "26.png", "27.png", "28.png", "29.png", "30.png",
+ "31.png", "32.png", "33.png"];
 const stickerSelector = document.querySelector(".sticker-selector");
 var pcLong = 0;
 let clickedx = '';
@@ -44,7 +46,7 @@ function selectPage(){
         const stickerselecting = document.createElement("div")
         stickerselecting.style.height="50px";
         stickerselecting.style.width = "50px";
-        stickerselecting.style.backgroundImage = `url(img2/sticker${[i]}.png)`;
+        stickerselecting.style.backgroundImage = `url(img2/${stickerList[i]})`;
         stickerselecting.style.backgroundSize = " contain";
         stickerselecting.style.backgroundRepeat ="no-repeat";
         stickerselecting.addEventListener("click", stickerSelected)
@@ -122,13 +124,9 @@ function mouseEnd(event) {
         function deleteImage() {
             body.removeChild(img);
             stickerInf = stickerInf.filter((toDo) => toDo.id !== parseInt(img.id));
-            console.log(stickerInf);
             saveStickers();
-
         };
-
-        body.appendChild(img);
-     
+        body.appendChild(img); 
         img.append(xbutton);
     }
     
@@ -143,7 +141,7 @@ const savedStickers = localStorage.getItem(STICKER_KEY)
 
 
 
-if (stickerInf !== null) {
+if (savedStickers !== null) {
     const parsedStickers = JSON.parse(savedStickers);
     stickerInf = parsedStickers;
     parsedStickers.forEach(paintSticker);
@@ -187,7 +185,6 @@ if (stickerInf !== null) {
     }
 
 }
-
 //Web & Mobile 다이어리 호환 가능 했으면 좋겠음.              
 //monthly도 만들기
                                

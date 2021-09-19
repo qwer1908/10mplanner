@@ -4,6 +4,30 @@ const dates = document.querySelector(".date");
 const day = document.querySelector(".day");
 const timestamp = document.querySelector(".timestamp");
 const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+let savedDate = localStorage.getItem("date")
+dates.addEventListener("click", selectDate)
+
+
+function selectDate(){
+
+    const dateSelectPage = document.createElement("input")
+    dateSelectPage.type = "date";
+    
+    dateSelectPage.style.position = "absolute";
+    dateSelectPage.style.top= "86px";
+    dateSelectPage.style.left="40px";
+    dateSelectPage.addEventListener("input", dateSelected)
+    body.appendChild(dateSelectPage);
+
+    function dateSelected (event) {
+        const dateSelectPages = event.target;
+        savedDate = dateSelectPage.value;
+        localStorage.setItem("date", JSON.stringify(dateSelectPages.value));
+        dates.innerText = dateSelectPages.value;
+        body.removeChild(dateSelectPages);
+
+    }
+}
 
 function onClickTimestamp(){
     const date = new Date();
@@ -23,9 +47,7 @@ timestamp.addEventListener("click", onClickTimestamp)
 
 function getDate() {
     const date = new Date();
-    const daynumber = date.getDay();
     dates.innerText = `${date.getFullYear()} / ${String(date.getMonth()+1).padStart(2, "0")} / ${String(date.getDate()).padStart(2,"0")}`;
-    day.innerText = `${daysOfWeek[daynumber]}`;
 }
 
 for (let i = 0; i < table.length; i++) {
@@ -43,9 +65,15 @@ function sentence(){
     
 }
 
+getDate()
+
+if (savedDate !== null) {
+    console.log("blabla")
+    dates.innerText = JSON.parse(localStorage.getItem("date"));
+}
 
 setInterval(getClock, 1000)
-setInterval(getDate, 1000)
+
 
 
 

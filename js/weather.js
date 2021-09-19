@@ -15,4 +15,4 @@ function onGeoError() {
     alert("Can't find you.")
 }
 
-navigator.geolocation.getCurrentPosition(onGeoOk, onGeoError)
+//navigator.geolocation.getCurrentPosition(onGeoOk, onGeoError)
