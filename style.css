@@ -260,3 +260,7 @@ body {
   flex-wrap: wrap;
   background-color: aliceblue;
 }
+
+.example > button:last-child {
+  background-color: white;
+}

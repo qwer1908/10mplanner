@@ -80,10 +80,10 @@ function mouseEnd(event) {
     
     const xa = event.pageX;
     const ya = event.pageY;
-    console.dir(event);    
+    if (onbutton.style.backgroundColor == "yellow" ){
     var result = Date.now() - pcLong;
-    if(Number(result) > 800){ 
-        console.log("long click");        
+    if(Number(result) > 500){ 
+       console.log("long click");        
        const newid= Date.now();
        const newsticker = stickerSelector.style.backgroundImage
        const img = document.createElement("div");
@@ -97,6 +97,7 @@ function mouseEnd(event) {
        img.style.left=xa-40+"px";
        img.style.top=ya-40+"px";
        img.addEventListener("click", showDeleteButton);
+       
        const newStickerObj ={
            backgroundSrc: newsticker,
            id: newid,
@@ -129,7 +130,7 @@ function mouseEnd(event) {
         body.appendChild(img); 
         img.append(xbutton);
     }
-    
+}
 };
 
 

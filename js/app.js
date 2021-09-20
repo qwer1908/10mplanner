@@ -12,10 +12,14 @@ const body = document.querySelector("body");
 // function onClickColorstamp() {
    // note.innerText +=  }
 
+
+
 for (let i = 0; i < abox.length; i++) {
+   
   abox[i].className = i;
   
    function onMouseDown(){
+      if (onbutton.style.backgroundColor == "white" || onbutton.style.backgroundColor == ""){
       console.log("mousedown");
       const firstbox = abox[i].className;
       button.className= firstbox
@@ -27,9 +31,12 @@ for (let i = 0; i < abox.length; i++) {
       else {
          abox[i].style.backgroundColor = "";
       }
+      }
    } 
   
    function onMouseUp() {
+      
+      
       console.log("mouseup")
       const lastbox = abox[i].className;
       var abcdef = color.value;
@@ -48,13 +55,13 @@ for (let i = 0; i < abox.length; i++) {
       if (abox[i].style.backgroundColor === "") {
          localStorage.removeItem(i);
          
+      
+      
       }
-      
-      
    }
  abox[i].addEventListener("mousedown", onMouseDown) 
  abox[i].addEventListener("mouseup", onMouseUp)
- 
+
 }
 
 

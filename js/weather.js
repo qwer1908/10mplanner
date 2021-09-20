@@ -8,7 +8,6 @@ function onGeoOk(position){
     .then(data => {
         const weather = document.querySelector(".weather span:first-child")
         weather.innerText = data.weather[0].main;
-    
     });
 }
 function onGeoError() {
