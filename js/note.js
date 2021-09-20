@@ -9,3 +9,14 @@ save.addEventListener("click", function(event){
     localStorage.setItem("textdata", textdata);
  })
  
+ note.addEventListener('click', function() {
+  
+   /* Make content editable when clicked */
+   note.setAttribute('contenteditable', true);
+ });
+ 
+ note.addEventListener('blur', function() {
+ 
+   /* Remove content editable when blurred to ensure spelling lines disappear */
+   note.setAttribute('contenteditable', false);
+ });
