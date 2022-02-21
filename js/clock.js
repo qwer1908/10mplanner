@@ -50,31 +50,17 @@ function getDate() {
     dates.innerText = `${date.getFullYear()} / ${String(date.getMonth()+1).padStart(2, "0")} / ${String(date.getDate()).padStart(2,"0")}`;
 }
 
-for (let i = 0; i < table.length; i++) {
-    const date = new Date();
-    const hours = date.getHours();
-    console.log(hours)
-    if ( i+4 === hours) {
-        table[i].classList.add("animation");
-    }
-}
-
-function sentence(){
-    table[i].classList.add("animation");
-
-    
-}
 
 getDate()
+
+
+
+setInterval(getClock, 1000)
 
 if (savedDate !== null) {
     console.log("blabla")
     dates.innerText = JSON.parse(localStorage.getItem("date"));
 }
-
-setInterval(getClock, 1000)
-
-
 
 
 

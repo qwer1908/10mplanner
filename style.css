@@ -264,3 +264,9 @@ body {
 .example > button:last-child {
   background-color: white;
 }
+
+.gotemplate {
+  position: absolute;
+  top: 15px;
+  left: 10px;
+}
